@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-bg text-slate-200 font-sans antialiased transition-colors duration-300;
+}
+
+html.light body {
+  @apply bg-bg-light text-slate-800;
+}
+
+::selection {
+  background: #3b82f6;
+  color: white;
+}
+
+/* ---------- Custom scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1120;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#3b82f6, #8b5cf6);
+  border-radius: 8px;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+/* ---------- Reusable component classes ---------- */
+.glass {
+  @apply bg-card/60 backdrop-blur-xl border border-white/10;
+}
+html.light .glass {
+  @apply bg-card-light/70 border-slate-200;
+}
+
+.glass-card {
+  @apply glass rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300;
+}
+
+.section-heading {
+  @apply text-3xl sm:text-4xl font-extrabold tracking-tight;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent;
+}
+
+.chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-slate-200 transition-all duration-200 hover:border-accent/50 hover:bg-accent/10 hover:-translate-y-0.5;
+}
+html.light .chip {
+  @apply border-slate-200 bg-slate-100 text-slate-700 hover:bg-accent/10;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent2 px-6 py-3 font-semibold text-white shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:-translate-y-0.5 active:translate-y-0;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-slate-100 backdrop-blur transition-all duration-300 hover:border-accent/50 hover:bg-white/10 hover:-translate-y-0.5;
+}
+html.light .btn-secondary {
+  @apply border-slate-300 bg-white text-slate-700 hover:border-accent/50;
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* ---------- Custom cursor (desktop only) ---------- */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
