@@ -7,8 +7,8 @@ export const personalInfo = {
   introduction:
     "I'm a postgraduate Computer Science student specializing in Data Science. I'm passionate about machine learning, analytics, and building meaningful solutions from data. I enjoy transforming ideas into practical applications through continuous learning and hands-on projects.",
   location: 'Kochi, Kerala',
-  email: 'tamannabilluraj1564@gmail.com', // EDIT ME: replace with real email
-  resumeUrl: '/tamanna_resume.pdf', // EDIT ME: drop your resume PDF in /public and update this path
+   email: 'tamannabilluraj1564@gmail.com', // EDIT ME: replace with real email
+   resumeUrl: `${import.meta.env.BASE_URL}tamanna_resume.pdf`, // EDIT ME: drop your resume PDF in /public
   social: {
     github: 'https://github.com/tamannabilluraj', // EDIT ME
     linkedin: 'https://linkedin.com/in/tamannabillu', // EDIT ME
